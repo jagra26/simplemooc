@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from simplemooc.core import views
-from simplemooc.core.views import home
+from simplemooc.core.views import home, contact
 #app_name = 'admin'
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', home, name = 'home'),
+    url(r'^contato/$', contact, name = 'contact'),
     #url(r'^admin/', include(admin.site.urls)),
 ]
