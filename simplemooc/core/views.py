@@ -6,3 +6,7 @@ def home(request):
 
 def contact(request):
 	return render(request, 'contact.html')
+
+def index(request):
+	template_name = 'index.html'
+	return render(request, template_name)
