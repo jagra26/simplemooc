@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+
 from simplemooc.core import views
 from simplemooc.core.views import home, contact
 from simplemooc.courses import views
 from simplemooc.courses.views import index
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,6 +30,7 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('simplemooc.core.urls')),
+    url(r'^conta/', include('simplemooc.accounts.urls')),
     url(r'^cursos/', include('simplemooc.courses.urls')),
     #url(r'^$', home, name = 'home'),
     #url(r'^contato/$', contact, name = 'contact'),
