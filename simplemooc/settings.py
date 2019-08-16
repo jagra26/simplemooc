@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'simplemooc.core',
+    'simplemooc.accounts',
     'simplemooc.courses',
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\core\templates',
-        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\courses\templates'],
+        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\courses\templates',
+        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\accounts\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +137,9 @@ EMAIL_HOST_USER = 'email@gmail.com'
 EMAIL_HOST_PASSWORD = 'senha'
 EMAIL_PORT = 587
 CONTACT_EMAIL = 'teste@gmail.com'
+
+
+#Auth
+LOGIN_URL = '/conta/entrar'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_RUL = '/conta/logout'
