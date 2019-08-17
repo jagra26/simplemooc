@@ -27,14 +27,14 @@ class PasswordResetForm(forms.Form):
         key = generate_hash_key(user.username)
         reset = PasswordReset(key=key, user=user)
         reset.save()
-        template_name = 'password_reset.html'
+        template_name = 'password_reset_mail.html'
         subject = 'Criar nova senha no Simple MOOC'
         context = {
             'reset': reset,
         }
         send_mail_template(subject, template_name, context, [user.email])
 
-
+        
 class RegisterForm(forms.ModelForm):
 
     password1 = forms.CharField(label='Senha', widget=forms.PasswordInput)

@@ -11,5 +11,6 @@ urlpatterns = [
 	url(r'^sair/$', auth_views.LogoutView.as_view(next_page="/"), name='logout'),
 	url(r'^cadastre-se/$', views.register, name='register'),
 	url(r'^nova-senha/$', views.password_reset, name='password_reset'),
+	url(r'^confirmar-nova-senha/(?P<key>\w+)/$', views.password_reset_confirm, name='password_reset_confirm'),
 	#url(r'^(?P<pk>\d+)/$', details, name='details'),
 ]

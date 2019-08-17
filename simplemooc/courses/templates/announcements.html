@@ -1,0 +1,24 @@
+{% extends "course_dashboard.html" %}
+
+{% block dashboard_content %}
+
+{% for announcement in announcements %}
+
+<div class="well">
+	<h2>{{ announcement.title }}</h2>
+        {{ announcement.content|linebreaks }}
+        <p>
+            <a href="#comments" title="">
+                <i class="fa fa-comments-o"></i>
+                {% with comments_count=announcement.comments.count %}
+                    {{ comments_count }}
+                    Comentário{{ comments_count|pluralize }}
+                {% endwith %}
+            </a>
+        </p>
+</div>
+{% empty %}
+<div class="">Sem anúncios
+</div>
+{% endfor %}
+{% endblock %}
