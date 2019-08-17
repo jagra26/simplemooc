@@ -1,20 +1,20 @@
 from django.db import models
-
+from django.conf import settings
 from taggit.managers import TaggableManager
 
 
-class Thread(model.Model):
+class Thread(models.Model):
 
 	title = models.CharField('Título', max_length = 100)
 	body = models.TextField('Mensagem')
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Autor',
-		related_name = 'threads')
+		related_name = 'threads', on_delete=models.PROTECT)
 	views = models.IntegerField('Visualizações', blank = True, default = 0)
 	answers = models.IntegerField('Respostas', blank=True, default = 0)
 	tags = TaggableManager()
 
 	created = models.DateTimeField('Criado em', auto_now_add=True)
-	modifed = models.DateTimeField('Modificado em', auto_now=True)
+	modified = models.DateTimeField('Modificado em', auto_now=True)
 
 	def __str__(self):
 		return self.title
@@ -29,10 +29,10 @@ class Reply(models.Model):
 	
 	reply = models.TextField('Resposta')
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Autor',
-		related_name = 'replies')
+		related_name = 'replies', on_delete=models.PROTECT)
 	correct = models.BooleanField('Correta?', blank=True, default=False)
 	created = models.DateTimeField('Criado em', auto_now_add=True)
-	modifed = models.DateTimeField('Modificado em', auto_now=True)
+	modified = models.DateTimeField('Modificado em', auto_now=True)
 	
 	def __str__(self):
 		return	self.reply[:100]
