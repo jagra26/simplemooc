@@ -4,9 +4,12 @@ from django.contrib.auth.forms import (UserCreationForm, PasswordChangeForm,
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+
 from simplemooc.core.utils import generate_hash_key
+
 from .forms import RegisterForm, EditAccountForm, PasswordResetForm
 from .models import PasswordReset
+from simplemooc.accounts import templates
 
 User = get_user_model
 
