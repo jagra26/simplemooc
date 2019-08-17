@@ -10,3 +10,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register([Enrollment, Announcement, Comment])
+admin.site.register([Enrollment, Announcement, Comment])

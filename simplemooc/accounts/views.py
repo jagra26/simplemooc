@@ -12,6 +12,8 @@ from .models import PasswordReset
 from simplemooc.accounts import templates
 from simplemooc.courses.models import Enrollment
 
+from simplemooc.courses.models import Enrollment
+
 User = get_user_model
 
 @login_required
