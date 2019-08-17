@@ -1,8 +1,6 @@
-from django.contrib import admin
-from django.urls import path
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from simplemooc.forum import views
-
-urlpatterns = [ 
-	url(r'^$', index, name='index'),
+from simplemooc.forum.views import forumIndex
+urlpatterns = [
+    url(r'^$', forumIndex, name='forumIndex'),
 ]

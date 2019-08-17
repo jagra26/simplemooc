@@ -64,7 +64,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\core\templates',
         r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\courses\templates',
-        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\accounts\templates'],
+        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\accounts\templates',
+        r'C:\Users\joaoa\Desktop\simplemooc\simplemooc\forum\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
