@@ -73,12 +73,15 @@ class Material(models.Model):
 	
 	name = models.CharField('Nome', max_length=100)
 	embedded = models.TextField('Vídeo embedded', blank=True)
-	filee = models.FileField('Arquivo', upload_to = 'lessons/materials', blank=True)
+	file = models.FileField('Arquivo', upload_to = 'lessons/materials', blank=True)
 
 	lesson = models.ForeignKey(Lesson, verbose_name='Aula', related_name='materials', on_delete=models.PROTECT)		
 
 	def is_embedded(self):
 		return bool(self.embedded)
+
+	def has_file(self):
+		return bool(self.file)
 
 	def __str__(self):
 		return self.name
