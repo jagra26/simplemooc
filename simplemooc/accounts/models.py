@@ -2,6 +2,7 @@ from django.db import models
 from django.core import validators
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin, UserManager)
 import re
+from django.conf import settings
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -32,3 +33,18 @@ class User(AbstractBaseUser, PermissionsMixin):
 	class Meta:
 		verbose_name = 'Usuário' 
 		verbose_name_plural = 'Usuários' 
+class PasswordReset(models.Model):
+
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Usuário', on_delete=models.PROTECT,
+		related_name = 'resets'
+		)
+	key = models.CharField('chave', max_length=100, unique= True)
+	created_at = models.DateTimeField('Criado em', auto_now_add=True)
+	confirmed = models.BooleanField('Confirmado?', default=False, blank=True)
+	def __str__(self):
+		return '{0} - {1}'.format(self.user, self.created_at)
+
+	class Meta:
+		verbose_name = 'Reset de senha'
+		verbose_name_plural = 'Reset de senhas'
+		ordering = ['-created_at']

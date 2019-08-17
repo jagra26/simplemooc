@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('is_superuser', models.BooleanField(default=False, help_text='Designates that this user has all permissions without explicitly assigning them.', verbose_name='superuser status')),
                 ('username', models.CharField(max_length=30, unique=True, verbose_name='Nome de Usuário')),
                 ('email', models.EmailField(max_length=254, unique=True, verbose_name='E-mail')),
-                ('neme', models.CharField(blank=True, max_length=100, verbose_name='Nome')),
+                ('name', models.CharField(blank=True, max_length=100, verbose_name='Nome')),
                 ('is_active', models.BooleanField(blank=True, default=True, verbose_name='Está ativo?')),
                 ('is_staff', models.BooleanField(blank=True, default=False, verbose_name='É da equipe?')),
                 ('date_joined', models.DateTimeField(auto_now_add=True, verbose_name='Data de Entrada')),
