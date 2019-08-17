@@ -37,7 +37,7 @@
                                         <i class"fa fa-video-camera"></i>
                                         Acessar
                                     </a>
-                                    {% else %}
+                                    {% elif material.has_file %}
                                     <a target="_blank" href="{{ material.file.url }}">
                                     <i class"fa fa-download"></i>
                                             Baixar
