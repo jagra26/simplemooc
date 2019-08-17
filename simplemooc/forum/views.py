@@ -17,7 +17,7 @@ from .models import Thread
 
 class ForumView(ListView):
 
-    paginate_by = 2
+    paginate_by = 10
     template_name = 'forumIndex.html'
 
     def get_queryset(self):
